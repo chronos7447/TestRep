@@ -1,30 +1,25 @@
 {
-  // Put your commands here
-  // Add a custom claim "sensitiveData" to the ID Token
   let debugContext = {
     AccessClaims: [
       {
         sensitiveData: "NOT_STORED_IN_OKTA"
       }
     ]
-  };
-  
+  }
   let commandArray = [
       {
         "op": "add",
         "path": "/claims/sensitiveData",
         "value": "NOT_STORED_IN_OKTA"
       }          
-    ];  
+    ]  
   // Add our Token commands the handlers response command object
   const commands = [
     {
       "type": "com.okta.tokens.access_token.patch",
       "value": commandArray
     }       
-  ];
-     
-  // stringify the debug context so that a JSON payload can be based back to Okta as a string
+  ]
   debugContext = JSON.parse(JSON.stringify(debugContext));
  
   const responseBody = {
