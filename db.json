@@ -1,16 +1,6 @@
 {
   "commands": [
     {
-      "type": "com.okta.identity.patch",
-      "value": [
-        {
-          "op": "add",
-          "path": "/claims/extPatientId",
-          "value": "1234"
-        }
-      ]
-    },
-    {
       "type": "com.okta.access.patch",
       "value": [
         {
