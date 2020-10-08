@@ -1,31 +1,24 @@
 {
-  let debugContext = {
-    AccessClaims: [
-      {
-        sensitiveData: "NOT_STORED_IN_OKTA"
-      }
-    ]
-  };
-  let commandArray = [
-      {
-        "op": "add",
-        "path": "/claims/sensitiveData",
-        "value": "NOT_STORED_IN_OKTA"
-      }          
-    ]  
-  // Add our Token commands the handlers response command object
-  const commands = [
+  "commands": [
     {
-      "type": "com.okta.tokens.access_token.patch",
-      "value": commandArray
-    }       
-  ];
-
-  debugContext = JSON.parse(JSON.stringify(debugContext));
- 
-  const responseBody = {
-      "result": "SUCCESS",
-      "commands": commands,
-      "debugContext": debugContext
-  }  
+      "type": "com.okta.identity.patch",
+      "value": [
+        {
+          "op": "add",
+          "path": "/claims/extPatientId",
+          "value": "1234"
+        }
+      ]
+    },
+    {
+      "type": "com.okta.access.patch",
+      "value": [
+        {
+          "op": "add",
+          "path": "/claims/external_guid",
+          "value": "F0384685-F87D-474B-848D-2058AC5655A7"
+        }
+      ]
+    }
+  ]
 }
