@@ -5,7 +5,7 @@
         sensitiveData: "NOT_STORED_IN_OKTA"
       }
     ]
-  }
+  };
   let commandArray = [
       {
         "op": "add",
@@ -19,7 +19,8 @@
       "type": "com.okta.tokens.access_token.patch",
       "value": commandArray
     }       
-  ]
+  ];
+
   debugContext = JSON.parse(JSON.stringify(debugContext));
  
   const responseBody = {
